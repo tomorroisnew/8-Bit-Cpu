@@ -1,6 +1,10 @@
 ## Specs
 8-bit cpu.
 
+## Datapath
+Here is the hand drawn datapath.
+![](media/datapath.jpg)
+
 ## Registers
 - `$1` (00)- General Purpose
 - `$2` (01)- General Purpose
