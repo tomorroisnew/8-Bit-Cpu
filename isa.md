@@ -1,0 +1,40 @@
+## Specs
+8-bit cpu.
+
+## Registers
+- `$1` (00)- General Purpose
+- `$2` (01)- General Purpose
+- `$3` (10)- General Purpose
+- `$4` (11)- Used for load upper and loader lower. Can also be used as general purpose
+- `$pc` - program counter. Special Purpose. 
+- `$ra` - return address. Special Purpose
+
+## Memory 
+Memory is addressable by 2**8 = 256 bytes. Each operations are 1 bytes each and is stored from memory address 0. Address 253 to 256 are for memory mapped io. (these 3 bytes are for uart port)
+
+## I/O
+For now. Only one uart is needed so that is what i implemented
+Uart - Uart Has 3 registers mapped in the memory. One for the status and configurations, one for data to be sent, and one is data recieved. 
+
+## Instruction Sets
+|    | Opcode       | PseudoCode            | Assembly             | Description                                                                                                               |
+|----|--------------|-----------------------|----------------------|---------------------------------------------------------------------------------------------------------------------------|
+| 1  | [0000 0000]  | Halt                  | Halt                 | Halt                                                                                                                      |
+| 2  | [0001 xxxx]  | $4 = xxxx0000         | lagay_itaas xxxx     | load upper immidiate xxxx to register $4. Clear the lower bits. Works by shifting the immidiate by 4 and storing it to $4 |
+| 3  | [0010 xxxx]  | $4 = $4 \| xxxx       | lagay_ibaba xxxx     | load lower immidiate xxxx to register $4. Similar to oring the $4 register with the immidiate                             |
+| 4  | [0011 xx yy] | xx = mem[yy]          | basa_mula_mem xx, yy | read from memory address in register yy to xx                                                                             |
+| 5  | [0100 xx yy] | mem[yy] = xx          | lagay_sa_mem  xx, yy | store to memory address in register yy from value of xx                                                                   |
+| 6  | [0101 xx yy] | xx = yy               | lipat xx, yy         | move value of register yy to xx                                                                                           |
+| 7  | [0110 xx yy] | xx = yy + xx          | dagdag xx, yy        | add yy to xx store value to xx. Can set zero                                                                              |
+| 8  | [0111 xx yy] | xx = ~(yy & xx)       | hindi_tsaka xx, yy   | nand yy to xx store value to xx.                                                                                          |
+| 9  | [1000 xx yy] | xx = yy & xx          | tsaka xx, yy         | and yy to xx store value to xx                                                                                            |
+| 10 | [1001 xx yy] | xx = yy \| xx         | o_kaya xx, yy        | or yy and xx store value to xx                                                                                            |
+| 11 | [1010 xx yy] | xx = yy ^ xx          | xor xx,yy            | xor yy and xx store value to xx. Can set the zero flag.                                                                   |
+| 12 | [1011 00 xx] | call xx               | tawag xx             | jump to address register xx                                                                                               |
+| 13 | [1100 00 xx] | if(zero) call xx      | tawag_kung_zero xx   | jump to address register xx if zero flag is set                                                                           |
+| 14 | [1101 00 xx] | $pc = $ra             | balik                | return. Set $pc to $ra                                                                                                    |
+| 15 | [1110 xxxx]  | $pc += xxxx           | sanga xxxx           | branch to address offset xxxx                                                                                             |
+| 16 | [1111 xxxx]  | if(zero ) $pc += xxxx | sanga_kung_zero xxxx | branch to address offset xxxx if zero flag is set                                                                         |
+
+Flags Per Instruction
+1. Halt; 

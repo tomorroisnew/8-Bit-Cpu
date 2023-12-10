@@ -1,0 +1,98 @@
+$date
+	Sun Dec 10 03:38:08 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module Register_File_tb $end
+$var wire 8 ! Data2 [7:0] $end
+$var wire 8 " Data1 [7:0] $end
+$var reg 1 # RegWrite_Enable $end
+$var reg 2 $ RegisterData1 [1:0] $end
+$var reg 2 % RegisterData2 [1:0] $end
+$var reg 8 & WriteData [7:0] $end
+$var reg 2 ' WriteRegister [1:0] $end
+$var reg 1 ( clk $end
+$var reg 1 ) reset $end
+$scope module dut $end
+$var wire 1 # RegWrite_Enable $end
+$var wire 2 * RegisterData1 [1:0] $end
+$var wire 2 + RegisterData2 [1:0] $end
+$var wire 8 , WriteData [7:0] $end
+$var wire 2 - WriteRegister [1:0] $end
+$var wire 1 ( clk $end
+$var wire 1 ) reset $end
+$var reg 8 . Data1 [7:0] $end
+$var reg 8 / Data2 [7:0] $end
+$var integer 32 0 i [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+bx 0
+bx /
+bx .
+bx -
+bx ,
+bx +
+bx *
+x)
+x(
+bx '
+bx &
+bx %
+bx $
+x#
+bx "
+bx !
+$end
+#15
+0)
+#30
+b100 0
+1)
+#45
+0(
+#60
+b0 !
+b0 /
+b0 "
+b0 .
+b100 0
+0#
+b0 '
+b0 -
+b0 &
+b0 ,
+b11 %
+b11 +
+b1 $
+b1 *
+1(
+#75
+0(
+#90
+b100 0
+1#
+b1 &
+b1 ,
+1(
+#105
+0(
+#120
+b0 "
+b0 .
+b100 0
+0#
+b0 &
+b0 ,
+b0 $
+b0 *
+1(

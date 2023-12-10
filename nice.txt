@@ -1,0 +1,7 @@
+yosys -p "read_verilog -sv -nooverwrite .\hdl\Datapath.sv .\hdl\Data_Memory.sv .\hdl\ALU.sv .\hdl\ALU.sv; proc; opt; synth; prep -top %1; write_json synthesis\%1\%1.json"
+
+yosys -p "read_verilog -sv -nooverwrite .\hdl\Datapath.sv .\hdl\Data_Memory.sv .\hdl\ALU.sv .\hdl\ALU.sv; proc; opt; synth; prep -top Datapath; write_json synthesis\Datapath.json"
+
+yosys -p "read_verilog -sv -nooverwrite .\hdl\Register_File.sv .\hdl\Register.sv .\hdl\Instruction_Memory.sv .\hdl\Datapath.sv .\hdl\Data_Memory.sv .\hdl\ALU.sv .\hdl\ALU.sv; blackbox; proc; opt; synth; prep -top Datapath; write_json synthesis\Datapath.json"
+
+yosys -p "read_verilog -sv -nooverwrite .\hdl\Datapath.sv .\hdl\CPU.sv .\hdl\Control_Unit.sv .\hdl\Register_File.sv .\hdl\Register.sv .\hdl\Instruction_Memory.sv .\hdl\Datapath.sv .\hdl\Data_Memory.sv .\hdl\ALU.sv .\hdl\ALU.sv; prep -top CPU; write_json .\synthesis\CPU.json"
