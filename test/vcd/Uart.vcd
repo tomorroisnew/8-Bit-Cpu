@@ -1,0 +1,219 @@
+$date
+	Mon Dec 11 04:17:58 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module Uart_tb $end
+$var wire 1 ! tx $end
+$var wire 8 " Data [7:0] $end
+$var reg 1 # clk $end
+$var reg 1 $ readEnable $end
+$var reg 2 % regselect [1:0] $end
+$var reg 1 & reset $end
+$var reg 1 ' rx $end
+$var reg 8 ( writeData [7:0] $end
+$var reg 1 ) writeEnable $end
+$scope module uart $end
+$var wire 1 # clk $end
+$var wire 1 $ readEnable $end
+$var wire 2 * regSelect [1:0] $end
+$var wire 1 & reset $end
+$var wire 1 ' rx $end
+$var wire 8 + writeData [7:0] $end
+$var wire 1 ) writeEnable $end
+$var parameter 2 , s_DATA $end
+$var parameter 2 - s_IDLE $end
+$var parameter 2 . s_START $end
+$var parameter 2 / s_STOP $end
+$var reg 8 0 DIN [7:0] $end
+$var reg 8 1 DOUT [7:0] $end
+$var reg 8 2 Data [7:0] $end
+$var reg 8 3 Status [7:0] $end
+$var reg 4 4 r_Bit_Index [3:0] $end
+$var reg 2 5 state [1:0] $end
+$var reg 1 6 stop_Index $end
+$var reg 1 ! tx $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b11 /
+b1 .
+b0 -
+b10 ,
+$end
+#0
+$dumpvars
+x6
+bx 5
+bx 4
+bx 3
+bz 2
+bx 1
+bx 0
+bx +
+bx *
+x)
+bx (
+x'
+x&
+bx %
+x$
+x#
+bz "
+1!
+$end
+#15
+0&
+0#
+#30
+b0 4
+b0 3
+b0 0
+b0 1
+b0 5
+1&
+1#
+#45
+0&
+0#
+#60
+06
+1#
+#75
+b0 %
+b0 *
+b10101010 (
+b10101010 +
+1)
+0#
+#90
+b10101010 1
+1#
+#105
+b10 %
+b10 *
+b1 (
+b1 +
+0#
+#120
+b1 3
+1#
+#135
+0)
+0#
+#150
+0!
+b1 5
+1#
+#165
+0#
+#180
+b10 5
+b11 3
+1#
+#195
+0#
+#210
+1!
+b1 4
+1#
+#225
+0#
+#240
+0!
+b10 4
+1#
+#255
+0#
+#270
+1!
+b11 4
+1#
+#285
+0#
+#300
+0!
+b100 4
+1#
+#315
+0#
+#330
+1!
+b101 4
+1#
+#345
+0#
+#360
+0!
+b110 4
+1#
+#375
+0#
+#390
+1!
+b111 4
+1#
+#405
+0#
+#420
+b1000 4
+b11 5
+1#
+#435
+0#
+#450
+16
+1#
+#465
+0#
+#480
+b0 1
+b0 3
+b0 4
+b0 5
+1#
+#495
+0#
+#510
+06
+1#
+#525
+0#
+#540
+1#
+#555
+0#
+#570
+1#
+#585
+0#
+#600
+1#
+#615
+0#
+#630
+1#
+#645
+0#
+#660
+1#
+#675
+0#
+#690
+1#
+#705
+0#
+#720
+1#
+#735
+0#
+#750
+1#
+#765
+0#

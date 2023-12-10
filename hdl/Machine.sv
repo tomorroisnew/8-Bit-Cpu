@@ -1,5 +1,8 @@
 module Machine(
-    input logic clk, reset
+    input logic clk, reset,
+    //Pins
+    output logic tx,
+    input logic rx
 );
 
     logic [7:0] ReadDataBus, WriteDataBus, AddressBus;
@@ -13,7 +16,8 @@ module Machine(
 
     //Memory
     Memory mem(
-        .clk(clk), .writeEnable(writeEnable), .reset(reset), .Address(AddressBus), .WriteData(WriteDataBus), .Data(ReadDataBus)
+        .clk(clk), .writeEnable(writeEnable), .reset(reset), .Address(AddressBus), .WriteData(WriteDataBus), .Data(ReadDataBus),
+        .tx(tx), .rx(rx)
     );
 
 endmodule
