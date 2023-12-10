@@ -1,5 +1,5 @@
 ## Specs
-8-bit cpu.
+8-bit cpu. Made using my imagination
 
 ## Datapath
 Here is the hand drawn datapath.
