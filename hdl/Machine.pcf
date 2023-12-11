@@ -1,0 +1,8 @@
+set_io reset 20
+set_io start 19
+set_io tx 9
+set_io rx 6
+set_io led1 23
+set_io led2 27
+set_io led3 25
+set_io led4 21

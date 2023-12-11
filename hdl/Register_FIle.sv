@@ -2,7 +2,8 @@ module Register_File(
     input logic clk, RegWrite_Enable, reset,
     input logic [1:0] RegisterData1, RegisterData2, WriteRegister,
     input logic [7:0] WriteData,
-    output logic [7:0] Data1, Data2
+    output logic [7:0] Data1, Data2,
+    output logic [31:0] DebugOut
 );
 
     logic [7:0] registers [3:0];
@@ -22,5 +23,7 @@ module Register_File(
             registers[WriteRegister] <= WriteData;
         end
     end
+    
+    assign DebugOut = {registers[0], registers[1], registers[2], registers[3]};
 
 endmodule

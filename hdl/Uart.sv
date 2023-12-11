@@ -1,11 +1,24 @@
 module Uart(
-    input logic clk, reset, writeEnable, readEnable, rx, 
+    input logic reset, writeEnable, readEnable, rx, clk,
     //Pins 
     input logic [7:0] writeData,
     input logic [1:0] regSelect, 
     output logic tx,
     output logic [7:0] Data
 );
+
+    //Use the lattice builtin oscilitaor.
+    //logic uartclk; 
+    //SB_HFOSC osc(
+    //    .CLKHFPU(1'b1),
+    //    .CLKHFEN(1'b1),
+    //    .CLKHF(uartclk)
+    //);
+
+    logic uartclk;
+    Baud_Rate_Generator brg(
+        .clk(clk), .reset(reset), .baudclk(uartclk)
+    );
 
     //Registers
     logic [7:0] DOUT; // Data Out
@@ -62,7 +75,7 @@ module Uart(
         end
     end
 
-    always_ff @(posedge clk) begin
+    always_ff @(posedge uartclk) begin
         case (state)
             s_IDLE: begin //Idle Wait for the lowest bit of Status reg to be 1 to start sending
                 if(Status[0] == 1'b1) begin
