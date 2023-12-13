@@ -9,7 +9,7 @@ module Led(
 
     always_ff @(posedge clk, posedge reset) begin
         if(reset) begin
-            register <= 8'b11111111;
+            register <= 8'b00000000;
         end else if (writeEnable) begin
             register <= writeData;
         end

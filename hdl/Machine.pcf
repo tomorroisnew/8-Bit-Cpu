@@ -6,3 +6,4 @@ set_io led1 23
 set_io led2 27
 set_io led3 25
 set_io led4 21
+set_io clk 35

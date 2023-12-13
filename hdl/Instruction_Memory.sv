@@ -6,7 +6,7 @@ module Instruction_Memory(
     logic [7:0] memory [0:255];
 
     initial begin
-        $readmemb("Y:/design/Custom Cpu/simulation/out.txt", memory);
+        $readmemb("Y:/design/8-Bit-Cpu/simulation/out.txt", memory);
         for (int i = 0; i < 256; i++) begin
             //$display("Memory[%0d] = %b", i, memory[i]);
         end

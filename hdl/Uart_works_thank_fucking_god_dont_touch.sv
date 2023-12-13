@@ -12,9 +12,7 @@ module Uart(
     parameter DIVISOR = 104; // Adjust for your system clock and baud rate
 
     // UART control signals
-    logic [DATA_BITS-1:0] data = 8'b00000000; // ASCII 'h'
-    logic [7:0] status;
-    logic [7:0] control;
+    logic [DATA_BITS-1:0] data = 8'b01001000; // ASCII 'h'
     logic [2:0] data_index = 0;
     logic [6:0] baud_counter = 0;
     logic baud_clk = 0;
@@ -22,9 +20,6 @@ module Uart(
     // State machine states
     parameter s_IDLE = 2'b00, s_START = 2'b01, s_DATA = 2'b10, s_STOP = 2'b11;
     logic [1:0] state = s_IDLE;
-
-    // Hacky Stuff
-    logic state_update;
 
     // Baud rate generation
     always_ff @(posedge clk or posedge reset) begin
@@ -38,22 +33,6 @@ module Uart(
             baud_counter <= baud_counter + 1;
         end
     end
-    
-    always_ff @(posedge clk or posedge reset) begin
-        if (reset) begin
-            data <= 8'b00000000;
-            control <= 8'b00000000;
-        end else if(writeEnable) begin
-            case (regSelect)
-                2'b00 :  data <= writeData;
-                2'b10 : control <= writeData;
-            endcase
-        end else begin
-            if (status[0]) begin //If transmitting set reset control to 0
-                control <= 8'b00000000;
-            end
-        end
-    end
 
     // UART state machine
     always_ff @(posedge baud_clk or posedge reset) begin
@@ -61,14 +40,11 @@ module Uart(
             state <= s_IDLE;
             data_index <= 0;
             tx <= 1'b1; // Idle state is high
-            status <= 8'b00000000;
         end else begin
             case (state)
                 s_IDLE : begin
-                    if (control[0] == 1'b1) begin
+                    // Transmit condition (can be replaced with an actual condition)
                         state <= s_START;
-                        status[0] <= 1'b1;
-                    end
                 end
                 s_START: begin
                     tx <= 1'b0; // Start bit
@@ -86,19 +62,9 @@ module Uart(
                 s_STOP : begin
                     tx <= 1'b1; // Stop bit
                     state <= s_IDLE;
-                    status[0] <= 1'b0;
                 end
             endcase
         end
-    end
-
-    always_comb begin
-        case (regSelect)
-            2'b00 : Data = data;
-            2'b10 : Data = control;
-            2'b11 : Data = status;
-            default: Data = data;
-        endcase
     end
 
 endmodule
