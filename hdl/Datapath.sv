@@ -85,6 +85,16 @@ module Datapath(
 
     // Input to alu and output
     logic [7:0] IN1, IN2, result;
+    logic zero_flag_reg, alu_zero_flag;
+    //Delay The zero flag to be usable on the next instruction. Theres no way it can be used in the same cycle anyway
+    always_ff @(posedge clk or posedge reset) begin
+        if(reset) begin
+            zero_flag_reg <= 0;
+        end else begin
+            zero_flag_reg <= alu_zero_flag;
+        end
+    end
+    assign zero_flag = zero_flag_reg;
 
     // Multiplexers for the input of alu
     always_comb begin
@@ -108,7 +118,7 @@ module Datapath(
     end
 
     ALU alu(
-        .input1(IN1), .input2(IN2), .op(ALUOP), .result(result), .zero(zero_flag)
+        .input1(IN1), .input2(IN2), .op(ALUOP), .result(result), .zero(alu_zero_flag)
     );
 
     //////////////////////////////////////////////////

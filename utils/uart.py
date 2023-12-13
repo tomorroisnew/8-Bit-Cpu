@@ -1,12 +1,21 @@
 import serial
+from bitstring import BitArray
+import struct
 
-ser = serial.Serial(
-    port='COM4',\
-    baudrate=115200,\
-    parity=serial.PARITY_NONE,\
-    stopbits=serial.STOPBITS_TWO,\
-    bytesize=serial.EIGHTBITS,\
-        timeout=0)
+def bytes_to_bits(byte_data):
+    # Unpack the byte data to an integer
+    num = struct.unpack('>B', byte_data)[0]
+    # Format the number as a binary string
+    return format(num, '08b')
+
+# Example usage
+byte_data = b'\x80'
+bit_representation = bytes_to_bits(byte_data)
+print(f"The bit representation of {byte_data} is {bit_representation}")
+
+
+ser = serial.Serial('COM4', 115200, 8, stopbits=1)
 
 while True:
-    ser.read()
+    print(bytes_to_bits(ser.read()))
+

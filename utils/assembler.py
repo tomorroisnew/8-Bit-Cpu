@@ -51,13 +51,32 @@ def parse(assembly: str):
 
 assembled = []
 
+code = []
 with open(f'{sys.argv[1]}') as f:
+    code = f.read().splitlines()
 
+# Remove Comments
+removed_comments = []
+for i in code:
+    if("//" in i):
+        comment_index = i.find("//")
+        removed_comments.append(i[:comment_index])
+    else:
+        removed_comments.append(i)
 
-    for line in f:
-        parsed = parse(line.strip())
-        if(parsed != None):
-            assembled.append(parsed)
+stripped = []
+for i in removed_comments:
+    if(i.strip() == ""):
+        continue
+    else:
+        stripped.append(i.strip())
+
+for line in stripped:
+    parsed = parse(line.strip())
+    print(f"{line}: {parsed}")
+    if(parsed != None):
+        assembled.append(format(int('0b' + parsed, 2), '02x'))
+
 
 with open('simulation/out.txt', 'w') as f:
     for line in assembled:

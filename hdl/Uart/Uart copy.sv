@@ -6,10 +6,18 @@ module Uart(
     output logic tx,
     output logic [7:0] Data
 );
-        // UART configuration parameters
+    //logic fastclk;
+    //SB_HFOSC clkclk(
+    //    .CLKHFEN(1'b1),
+    //    .CLKHFPU(1'b1),
+    //    .CLKHF(fastclk)
+    //);
+    //defparam clkclk.CLKHF_DIV = "0b00";
+
+    // UART configuration parameters
     parameter DATA_BITS = 8;
     parameter STOP_BITS = 1;
-    parameter DIVISOR = 104; // Adjust for your system clock and baud rate
+    parameter DIVISOR = 208;//417;//104;//416;//104; // Adjust for your system clock and baud rate
 
     // UART control signals
     logic [DATA_BITS-1:0] data = 8'b00000000; // ASCII 'h'
