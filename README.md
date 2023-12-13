@@ -17,8 +17,13 @@ Here is the hand drawn datapath.
 Memory is addressable by 2**8 = 256 bytes. Each operations are 1 bytes each and is stored from memory address 0. Address 253 to 256 are for memory mapped io. (these 3 bytes are for uart port)
 
 ## I/O
-For now. Only one uart is needed so that is what i implemented
-Uart - Uart Has 3 registers mapped in the memory. One for the status and configurations, one for data to be sent, and one is data recieved. 
+There are 2 io device. One is a uart transmitter, the other is an led.
+- Led address - 251
+- Uart Addresses
+    - DataOutBuffer Register - 252
+    - DataInBuffer register - 253
+    - Control Register - 254
+    - Status Register - 255
 
 ## Instruction Sets
 |    | Opcode       | PseudoCode            | Assembly             | Description                                                                                                               |
