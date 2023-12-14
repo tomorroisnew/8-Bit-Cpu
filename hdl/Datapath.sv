@@ -1,7 +1,7 @@
 module Datapath(
     input logic clk, reset, 
     // Signals from the Control Unit
-    input logic PC_Enable, RA_Enable, Reg_const4, RegWrite_Enable, Reg_Imm, MemWrite_Enable,
+    input logic PC_Enable, RA_Enable, Reg_const4, RegWrite_Enable, Reg_Imm, MemWrite_Enable, Unsigned_Signed,
     input logic [1:0] PC_RA_ALU_REG, Alu_Move_Mem, Reg_4_PC,
     input logic [2:0] ALUOP,
     //Signals to Control Unit
@@ -19,7 +19,7 @@ module Datapath(
     logic [7:0] instruction; // Instruction from Instruction Memory
 
     logic [1:0] toRd1, toRd2; // Wire connecting to rd1 and rd2 of Register File
-    logic [3:0] imm;
+    logic [7:0] imm;
     logic [7:0] toWriteData;
     logic [7:0] D1, D2; // Register Data 1 and 2 from the register file
     logic [7:0] Memout; // Output of memory 
@@ -70,8 +70,19 @@ module Datapath(
     end
 
     assign toRd2 = instruction[1:0];
-    assign imm = {{4{1'b0}}, instruction[3:0]}; // Zero Extend
+    //assign imm = {{4{1'b0}}, instruction[3:0]}; // Zero Extend
     assign opCode = instruction[7:4];
+
+    //Imidiate
+    always_comb begin
+        case (Unsigned_Signed)
+            1'b0 : imm = {{4{1'b0}}, instruction[3:0]};
+            1'b1 : imm = {{4{instruction[3]}}, instruction[3:0]};
+            default: begin
+                imm = {{4{1'b0}}, instruction[3:0]};
+            end
+        endcase
+    end
 
     Register_File RegFile(
         .clk(clk), .RegWrite_Enable(RegWrite_Enable), .reset(reset), 

@@ -42,8 +42,8 @@ There are 2 io device. One is a uart transmitter, the other is an led.
 | 12 | [1011 00 xx] | call xx               | tawag xx             | jump to address register xx                                                                                               |
 | 13 | [1100 00 xx] | if(zero) call xx      | tawag_kung_zero xx   | jump to address register xx if zero flag is set                                                                           |
 | 14 | [1101 00 xx] | $pc = $ra             | balik                | return. Set $pc to $ra                                                                                                    |
-| 15 | [1110 xxxx]  | $pc += xxxx           | sanga xxxx           | branch to address offset xxxx                                                                                             |
-| 16 | [1111 xxxx]  | if(zero ) $pc += xxxx | sanga_kung_zero xxxx | branch to address offset xxxx if zero flag is set                                                                         |
+| 15 | [1110 xxxx]  | if(zero ) $pc += xxxx           | sanga_kung_zero_unsigned xxxx           | branch to address offset xxxx if zero flag is set                                                                                             |
+| 16 | [1111 xxxx]  | if(zero ) $pc += xxxx | sanga_kung_zero_signed xxxx | branch to address offset signed xxxx if zero flag is set                                                                         |
 
 Alu Op
 ```

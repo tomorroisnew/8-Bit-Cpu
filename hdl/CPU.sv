@@ -10,7 +10,7 @@ module CPU(
     logic [3:0] opCode;
 
     //From Control Unit
-    logic PC_Enable, RA_Enable, Reg_const4, RegWrite_Enable, Reg_Imm, MemWrite_Enable;
+    logic PC_Enable, RA_Enable, Reg_const4, RegWrite_Enable, Reg_Imm, MemWrite_Enable, Unsigned_Signed;
     logic [1:0] PC_RA_ALU_REG, Alu_Move_Mem, Reg_4_PC;
     logic [2:0] ALUOP;
 
@@ -18,7 +18,7 @@ module CPU(
         .opCode(opCode), .zero_flag(zero_flag), //Inputs
         .PC_Enable(PC_Enable), .RA_Enable(RA_Enable), .Reg_const4(Reg_const4),
         .RegWrite_Enable(RegWrite_Enable), .Reg_Imm(Reg_Imm), .MemWrite_Enable(MemwriteEnable),
-        .PC_RA_ALU_REG(PC_RA_ALU_REG), .Alu_Move_Mem(Alu_Move_Mem), .Reg_4_PC(Reg_4_PC), .ALUOP(ALUOP)
+        .PC_RA_ALU_REG(PC_RA_ALU_REG), .Alu_Move_Mem(Alu_Move_Mem), .Reg_4_PC(Reg_4_PC), .ALUOP(ALUOP), .Unsigned_Signed(Unsigned_Signed)
     );
 
     Datapath dp(
@@ -26,7 +26,7 @@ module CPU(
         .RegWrite_Enable(RegWrite_Enable), .Reg_Imm(Reg_Imm), .MemWrite_Enable(MemWrite_Enable), 
         .PC_RA_ALU_REG(PC_RA_ALU_REG), .Alu_Move_Mem(Alu_Move_Mem), .Reg_4_PC(Reg_4_PC),
         .ALUOP(ALUOP), .zero_flag(zero_flag), .opCode(opCode),
-        .ReadData(ReadDataBus), .Address(AddressBus), .WriteData(WriteDataBus)
+        .ReadData(ReadDataBus), .Address(AddressBus), .WriteData(WriteDataBus), .Unsigned_Signed(Unsigned_Signed)
     );
 
 endmodule

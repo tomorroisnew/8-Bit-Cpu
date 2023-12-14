@@ -23,14 +23,15 @@ module Uart_Transmitter(
                 s_IDLE : begin
                     if(start) begin
                         state <= s_START;
+                        busy <= 1;
+                    end else begin
+                        busy <= 0;
                     end
                     tx <= 1'b1;
-                    busy <= 0;
                 end
                 s_START: begin
                     tx <= 1'b0; // Start bit
                     state <= s_DATA;
-                    busy <= 1;
                 end
                 s_DATA : begin
                     tx <= Data[data_index];

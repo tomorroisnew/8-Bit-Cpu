@@ -40,8 +40,8 @@ Instruction Sets
 14. [1101 00 xx] $pc = $ra;             balik;                    return. Set $pc to $ra
 
 // Branch instructions
-15. [1110 xxxx] $pc += xxxx;           sanga xxxx;                branch to address offset xxxx
-16. [1111 xxxx] if(zero ) $pc += xxxx; sanga_kung_zero xxxx;      branch to address offset xxxx if zero flag is set
+15. [1110 xxxx] if(zero ) $pc += int(xxxx);           sanga_kung_zero_signed xxxx;                branch to address offset xxxx
+16. [1111 xxxx] if(zero ) $pc += uint(xxxx); sanga_kung_zero_unsigned xxxx;      branch to address offset xxxx if zero flag is set
 
 Alu Op
 000 - None zero output. Zero flag 1

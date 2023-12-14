@@ -27,8 +27,8 @@ opcodes = {
     'tawag': ('1011', JTYPE),
     'tawag_kung_zero': ('1100', JTYPE),
     'balik': ('1101', IMMTYPE),
-    'sanga': ('1110', IMMTYPE),
-    'sanga_kung_zero': ('1111', IMMTYPE)
+    'sanga_kung_zero_unsigned': ('1110', IMMTYPE),
+    'sanga_kung_zero_signed': ('1111', IMMTYPE)
 }
 
 def parse(assembly: str):

@@ -14,11 +14,12 @@ module Uart(
     // UART control signals
     logic [DATA_BITS-1:0] data = 8'b01001000; // ASCII 'h'
     logic [7:0] control;
-    logic [7:0] status;
+    logic [7:0] status = 8'b00000000;
+    logic [7:0] busyReg = 8'b00000000;
     logic [2:0] data_index = 0;
     logic [6:0] baud_counter = 0;
     logic baud_clk = 0;
-    logic busy;
+    logic busy, previousBusy;
 
     // Baud rate generation
     always_ff @(posedge clk or posedge reset) begin
@@ -37,13 +38,22 @@ module Uart(
         if (reset) begin
             data <= 8'b00000000;
             control <= 8'b00000000;
+            status <= 8'b00000000;
         end else if (writeEnable) begin
             case (regSelect)
                 2'b00 : data <= writeData;
-                2'b10 : control <= writeData;
+                2'b10 : begin
+                    busyReg <= 8'b00000001;
+                    control <= writeData;
+                end
             endcase
         end else if (control[0] && busy) begin
             control <= 8'b00000000;
+        end else begin
+            previousBusy <= busy;
+            if(previousBusy && !busy) begin
+                busyReg <= 8'b00000000;
+            end
         end
     end
 
@@ -51,16 +61,16 @@ module Uart(
         .baud_clk(baud_clk), .reset(reset), .Data(data), .start(control[0]), .tx(tx), .busy(busy)
     );
 
-    assign status[0] = busy;
+    //assign status[0] = busy;
 
     always_comb begin
         case (regSelect)
                 2'b00: Data = data; //DataOutBuffer
                 2'b01: Data = data;//DataInBuffer Not Implemented Yet. Use data for now
                 2'b10: Data = control;
-                2'b11: Data = status;
+                2'b11: Data = busyReg;
                 default: begin
-                    Data = status;
+                    Data = busyReg;
                 end
             endcase
     end

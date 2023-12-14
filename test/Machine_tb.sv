@@ -874,6 +874,25 @@ module Machine_tb();
         #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
         #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
         #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
+        #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
+        #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
+        #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
+        #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
+        #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
+        #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
+        #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
+        #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
+        #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
+        #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
+        #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
+        #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
+        #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
+        #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
+        #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
+        #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
+        #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
+        #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
+        #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; #15 clk = 1; #15 clk = 0; 
         
     end
 

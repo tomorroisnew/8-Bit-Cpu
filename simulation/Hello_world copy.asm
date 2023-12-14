@@ -24,7 +24,7 @@ lagay_itaas 1111
 lagay_ibaba 1111
 basa_mula_mem $3, $4 // Read the status register of the Uart
 lagay_itaas 0000
-lagay_ibaba 0000
+lagay_ibaba 0001
 xor $3, $4 // Xor. Used to compare if two values is equal. I compared it against 00000000 because zero means its not busy
 tawag_kung_zero $2 // Looop back at the start if the comparison return zero
 
