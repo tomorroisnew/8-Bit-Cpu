@@ -1,5 +1,8 @@
 ## Specs
-8-bit cpu. Made using my imagination
+Single Cycle 8-bit cpu. Made using my imagination. To be ran on an icebreaker fpga.
+
+## Demo
+[![Demo](https://img.youtube.com/vi/h7JzOrro6Mk/0.jpg)](https://www.youtube.com/watch?v=h7JzOrro6Mk)
 
 ## Datapath
 Here is the hand drawn datapath.
